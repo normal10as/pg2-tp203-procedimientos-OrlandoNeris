@@ -9,16 +9,16 @@
 
 
         FechaActual()
-        HoraActual()
+        Console.WriteLine("La hora actual es: " & HoraActual())
 
         Console.ReadKey()
 
     End Sub
 
-    Private Function HoraActual() As Byte
-        Console.WriteLine("La hora actual es: " & Now.ToShortTimeString)
+    Private Function HoraActual() As Date
 
-        Return 0
+
+        Return Now.ToShortTimeString()
 
     End Function
 
