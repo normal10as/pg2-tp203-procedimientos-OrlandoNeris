@@ -7,14 +7,27 @@
 
     Sub main()
         Dim Valor As UInteger
+        Dim Sumatoria As Integer
         Validar(Valor)
-
-
+        ImprimirSumar(Sumatoria, Valor)
 
         Console.ReadKey()
     End Sub
 
-    Private Sub Validar(ByRef valor As String)
+
+    Sub ImprimirSumar(ByRef Acumulador As Integer, valor As Integer)
+        Console.WriteLine(" Valor       Cuadrado    Sumatoria")
+        For i As Integer = 1 To valor Step 1
+            Acumulador += Math.Pow(i, 2)
+            Console.WriteLine(" {0}             {1}         {2}", i, Math.Pow(i, 2), Acumulador)
+
+        Next
+
+
+    End Sub
+
+    '  Utilizar un método para el cálculo de la sumatoria vía parámetro por referencia.
+    Private Sub Validar(ByRef valor As Integer)
         Dim aux As Integer
         Do
             Console.WriteLine("Ingrese un valor entero positivo mayor que cero : ")
@@ -24,7 +37,7 @@
         valor = aux
     End Sub
 
-    '  Utilizar un método para el cálculo de la sumatoria vía parámetro por referencia.
+
 
 
 
