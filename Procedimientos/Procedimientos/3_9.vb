@@ -5,25 +5,29 @@
     '    1 = cuadrado   Area = lado * lado
     '     2 = rectángulo  Area = Base * Altura
     '     3 = trapecio Area = ((B + b)/2)*h
+
+
     Enum Figuras
         Cuadrado = 1
         Rectangulo
         Trapecio
     End Enum
+
     Sub main()
         Dim ladoA, LadoB, Base, Altura, Base1, Base2 As Single   ' denotese el exeso de variables para entender las llamadas a funciones.
         Dim op As Figuras = Validar()
 
         Select Case op
-            Case op.Cuadrado
-                Cargar(op, ladoA, LadoB)
+            Case Figuras.Cuadrado
+                Cargarop(op, ladoA, LadoB)
                 Console.WriteLine("El Area del Cuadrado es de: {0}", CalculodeArea(ladoA, ladoB))
 
-            Case 2
-                Cargar(op, Base, Altura)
-                Console.WriteLine("El Area del Cuadrado es de: {0}", CalculodeArea(Base, Altura))
+            Case Figuras.Rectangulo
+                Cargarop(op, Base, Altura)
+                Console.WriteLine("El Area del Rectangulo es de: {0}", CalculodeArea(Base, Altura))
 
-            Case 3
+            Case Figuras.Trapecio
+                Cargarop(op, Base1, Base2, Altura)
                 Console.WriteLine("El Area del Cuadrado es de: {0}", CalculodeArea(Base1, Base2, Altura))
 
         End Select
@@ -32,18 +36,21 @@
     End Sub
 
 
-    Private Sub Cargarop(opcion As Figuras, ByRef ladoA As Single, ByRef ladoB As Single)
+    Sub Cargarop(opcion As Figuras, ByRef ladoA As Single, ByRef ladoB As Single)
         Console.WriteLine("Calculo del Area de un {0}.. Ingrese los dos lados. ", opcion.ToString)
         Console.WriteLine("Ingrese Primer lado: ")
         ladoA = Console.ReadLine
         Console.WriteLine("Ingrese segundo valor: ")
     End Sub
 
-    Private Sub Cargarop(opcion As Figuras, ByRef ladoA As Single, ByRef ladoB As Single)
-        Console.WriteLine("Calculo del Area de un {0}.. Ingrese los dos lados. ", opcion.ToString)
-        Console.WriteLine("Ingrese Primer lado: ")
-        ladoA = Console.ReadLine
-        Console.WriteLine("Ingrese segundo valor: ")
+    Private Sub Cargarop(opcion As Figuras, ByRef base1 As Single, ByRef base2 As Single, ByRef altura As Single)
+        Console.WriteLine("Calculo del Area de un {0}.. Ingrese los tres lados. ", opcion.ToString)
+        Console.WriteLine("Ingrese Base 1: ")
+        base1 = Console.ReadLine
+        Console.WriteLine("Ingrese Base 2: ")
+        base2 = Console.ReadLine
+        Console.WriteLine("Ingrese altura: ")
+        altura = Console.ReadLine
     End Sub
 
     Function Validar() As Byte
