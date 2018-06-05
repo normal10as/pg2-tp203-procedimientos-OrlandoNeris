@@ -10,8 +10,8 @@
 
         Dim LadoA, LadoB As UShort
 
-        LadoA = Validar("A")
-        LadoB = Validar("B")
+        IngresarValor(LadoA)
+        IngresarValor(LadoB)
 
         Console.WriteLine("El lado C mide: " & CalculoC(LadoA, LadoB))
 
@@ -19,15 +19,18 @@
     End Sub
 
     Private Function Validar(lado As String) As UShort
-        Dim value As Integer
-        Do
-            Console.WriteLine("Ingrese un valor entero positivo mayor que cero correspondiente al lado {0}: ", lado)
-            value = Console.ReadLine
 
-        Loop Until (value > 0)
-
-        Return value
+        Return lado > 0
     End Function
+
+    Sub IngresarValor(ByRef lado As Integer)
+
+        Do
+            Console.Write("Ingrese un valor: ")
+            lado = Console.ReadLine
+        Loop Until (validar(lado))
+
+    End Sub
 
     Private Function CalculoC(ladoa As UShort, ladob As UShort) As Single
 

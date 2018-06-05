@@ -11,18 +11,15 @@
         Dim valor As Integer = Console.ReadLine
 
         Console.WriteLine("Potencias ")
-        Console.WriteLine(Funcion1(valor, Potencia))
-        Console.WriteLine(Funcion1(valor, Potencia))
-        Console.WriteLine(Funcion1(valor, Potencia))
-        Console.WriteLine(Funcion1(valor, Potencia))
-        Console.WriteLine(Funcion1(valor, Potencia))
+
+        For Potencia = 1 To 5
+            Console.WriteLine(Funcion1(valor, Potencia))
+        Next
 
         Console.ReadKey()
     End Sub
 
     Private Function Funcion1(value As Integer, ByRef potencia As Byte) As Integer
-        potencia += 1
-
         Return Math.Pow(value, potencia)
     End Function
 End Module
