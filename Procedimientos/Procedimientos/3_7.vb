@@ -73,31 +73,13 @@
 
     Function Calcular(operacion As Operaciones, valor1 As Integer, valor2 As Integer, valor3 As Integer) As Integer ' Recive 3 valores 
 
-        Select Case operacion
-            Case operacion.Suma
-                Return valor1 + valor2 + valor3
-            Case operacion.Resta
-                Return valor1 - valor2 - valor3
-            Case operacion.Multiplicacion
-                Return valor1 * valor2 * valor3
-            Case operacion.Division
-                Return valor1 / valor2 / valor3
-        End Select
+        Return Calcular(operacion, Calcular(operacion, valor1, valor2), valor3)
 
     End Function
 
     Function Calcular(operacion As Operaciones, valor1 As Integer, valor2 As Integer, valor3 As Integer, valor4 As Integer) ' Recive 4 valores
 
-        Select Case operacion
-            Case operacion.Suma
-                Return valor1 + valor2 + valor3 + valor4
-            Case operacion.Resta
-                Return valor1 - valor2 - valor3 - valor4
-            Case operacion.Multiplicacion
-                Return valor1 * valor2 * valor3 * valor4
-            Case operacion.Division
-                Return valor1 / valor2 / valor3 / valor4
-        End Select
+        Return Calcular(Calcular(operacion, Calcular(operacion, valor1, valor2), valor3), valor4)
 
     End Function
 
